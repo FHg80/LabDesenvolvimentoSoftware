@@ -1,0 +1,36 @@
+@startuml 02.puml
+title Diagrama de Sequência UC-02 : Listar Tarefas
+
+actor User
+participant Frontend
+participant TaskController
+participant TaskService
+participant TaskRepository
+participant Database
+
+User -> Frontend: Listar todas as tarefas
+activate Frontend
+Frontend -> TaskController: GET /task
+activate TaskController
+TaskController -> TaskService: findAll()
+activate TaskService
+
+alt if taskList.isEmpty() == True
+    TaskController --> User: HTTP 204 NO CONTENT
+else else
+    TaskService -> TaskRepository: findAll()
+    activate TaskRepository
+    TaskRepository -> Database: SELECT * FROM tasks
+    activate Database
+    Database --> TaskRepository: List<Task>
+    deactivate Database
+    TaskRepository --> TaskService: List<Task>
+    deactivate TaskRepository
+    TaskService --> TaskController: List<Task>
+    deactivate TaskService
+    TaskController -> Frontend: List<Task> (HTTP 200 OK)
+    deactivate TaskController
+    Frontend -> User: Lista de tarefas
+    deactivate Frontend
+end
+@enduml

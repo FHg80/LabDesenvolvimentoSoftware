@@ -1,0 +1,45 @@
+@startuml 04.puml
+title Diagrama de Sequência UC-04 : Marcar Tarefa como concluida
+
+actor User
+participant Frontend
+participant TaskController
+participant TaskService
+participant TaskRepository
+participant Task
+participant Database
+
+User -> Frontend: Marcar uma tarefa como concluida (id)
+activate Frontend
+Frontend -> TaskController: PATCH /task/{id}
+activate TaskController
+TaskController -> TaskService: marcarTarefaComoConcluida(id)
+activate TaskService
+TaskService -> TaskRepository: findById(id)
+activate TaskRepository
+alt if task não encontrada
+    TaskRepository --> TaskService: throw RuntimeException
+    TaskService --> TaskController: HTTP 404 NOT FOUND
+else else
+    TaskRepository -> Database: SELECT * FROM tasks WHERE id = {id}
+    activate Database
+    Database --> TaskRepository: Task
+    deactivate Database
+    TaskRepository --> TaskService: Task
+    deactivate TaskRepository
+    TaskService -> Task: setCompleted(true)
+    TaskService -> TaskRepository: save(Task)
+    TaskRepository -> Database: UPDATE tasks SET completed = true WHERE id = {id}
+    activate Database
+    Database --> TaskRepository: Updated Task
+    deactivate Database
+    TaskRepository --> TaskService: Task
+    deactivate TaskRepository
+    TaskService --> TaskController: Task
+    deactivate TaskService
+    TaskController -> Frontend: Task (HTTP 200 OK)
+    deactivate TaskController
+    Frontend -> User: Tarefa marcada como concluída
+    deactivate Frontend
+end
+@enduml

@@ -1,0 +1,200 @@
+* {
+    font-family: Roboto, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+p {
+    color: white;
+}
+
+h2 {
+    color: white;
+}
+
+
+
+h4 {
+    color: white;
+}
+
+body {
+    background: transparent;
+    background-color: black;
+    /* Make it white if you need */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.App {
+    color: #72a24d;
+    text-align: center;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 15px;
+    color: white;
+    padding: 7px;
+    border-radius: 4px;
+}
+
+.TodoWrapper {
+    margin-top: 5rem;
+    padding: 2rem;
+    border-radius: 5px;
+}
+
+.TodoForm {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.input-form input {
+    outline: none;
+    background: none;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 300px;
+    color: white;
+    margin-left: 10px;
+}
+
+.descricao-tarefa {
+    color: white;
+}
+
+.todo-btn {
+    background: #8758ff;
+    color: #fff;
+    border: none;
+    padding: 0.55rem;
+    cursor: pointer;
+}
+
+.tasksList {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+    border: 2px solid white;
+    width: 100%;
+}
+
+
+
+.incompleted {
+    color: #fff;
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.completed {
+    color: #c5aeff;
+    text-decoration: line-through;
+    cursor: pointer;
+}
+
+.delete-icon {
+    cursor: pointer;
+}
+
+.btn-typeTask {
+    background-color: white;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    margin-right: 4px;
+    margin-bottom: 10px;
+}
+
+.input-form {
+    display: flex;
+    align-items: center;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 8px;
+    margin-bottom: 8px;
+}
+
+.button-criar-tarefa {
+    background-color: white;
+    color: black;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.button-criar-tarefa:hover {
+    background-color: rgb(185, 185, 185);
+    transition: .3s;
+}
+
+.input-form select {
+    outline: none;
+    background: none;
+    border: 1px solid white;
+    padding: 0.5rem 1rem;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width: 120px;
+    color: white;
+    margin-left: 10px;
+    color: white;
+}
+
+.tasksList ul {
+    padding: 0.75rem 1rem;
+    border-radius: 5px;
+    margin-bottom: 1rem;
+}
+
+.tasksList li {
+    margin-top: 15px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+    padding: 7px;
+    list-style: none;
+}
+
+.tasksList h2 {
+    text-align: center;
+}
+
+.fa-trash {
+    color: red;
+    cursor: pointer;
+}
+
+.btn-excluir {
+    margin-left: 10px;
+    width: 5%;
+    background-color: white;
+    border: transparent;  
+}
+
+.TodoForm h2 {
+    text-align: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+}
+
+.TodoForm h4 {
+    margin-bottom: 5px;
+}
